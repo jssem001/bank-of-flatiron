@@ -1,19 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Transaction from "./Transaction";
 
-function TransactionsList() {
-  
-  var [transactions,setTransactions] = useState([])
+function TransactionsList({trans}) {
 
-  useEffect(()=> {
-    fetch('http://localhost:8001/transactions')
-      .then((response) => response.json())
-      .then((data) => { 
-        setTransactions(data)
-      });
-
-  },[])
-  //console.log(transactions)
   return (
     <table className="ui celled striped padded table">
       <tbody>
@@ -32,7 +21,7 @@ function TransactionsList() {
           </th>
         </tr>
         {/* Included the Transaction component */}
-        { transactions.map((posted)=>(
+        { trans.map((posted)=>(
           <Transaction key={posted.id} date={posted.date} desc={posted.description} 
           categ={posted.category} amount={posted.amount} />
         ))}
