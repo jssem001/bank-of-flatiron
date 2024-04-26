@@ -19,7 +19,7 @@ function AccountContainer() {
   return (
     <div>
       <Search trans={transactions}/>
-      <AddTransactionForm />
+      <AddTransactionForm trans={transactions}/>
       <TransactionsList trans={transactions}/>
     </div>
   );

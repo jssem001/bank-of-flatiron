@@ -1,6 +1,7 @@
 import React from "react";
 
-function AddTransactionForm() {
+function AddTransactionForm({trans}) {
+  
   return (
     <div className="ui segment">
       <form className="ui form">

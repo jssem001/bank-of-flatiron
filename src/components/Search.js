@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 
+
 function Search({trans}) {
   const [typedSearch, setTypedSearch] = useState("All");
 
@@ -11,7 +12,6 @@ function Search({trans}) {
     if (typedSearch === "All"){
       return true;
     }
-
     return tran.category === typedSearch;
   });
   return (
@@ -21,9 +21,8 @@ function Search({trans}) {
         placeholder="Search your Recent Transactions"
         onChange={() => console.log("Searching...")}
       />
-      <i className="circular search link icon"></i>
+      <i className="circular search link icon" onClick={handleCategoryChange}></i>
     </div>
-
   );
 }
 
