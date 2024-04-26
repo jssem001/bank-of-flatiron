@@ -18,7 +18,7 @@ function AccountContainer() {
 
   return (
     <div>
-      <Search />
+      <Search trans={transactions}/>
       <AddTransactionForm />
       <TransactionsList trans={transactions}/>
     </div>

@@ -1,6 +1,19 @@
-import React from "react";
+import React, {useState} from "react";
 
-function Search() {
+function Search({trans}) {
+  const [typedSearch, setTypedSearch] = useState("All");
+
+  function handleCategoryChange(event) {
+    setTypedSearch(event.target.value);
+  }
+
+  const transToDisplay = trans.filter((tran) => {
+    if (typedSearch === "All"){
+      return true;
+    }
+
+    return tran.category === typedSearch;
+  });
   return (
     <div className="ui large fluid icon input">
       <input
@@ -10,6 +23,7 @@ function Search() {
       />
       <i className="circular search link icon"></i>
     </div>
+
   );
 }
 
