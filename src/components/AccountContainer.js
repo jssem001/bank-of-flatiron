@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import TransactionsList from "./TransactionsList";
-import Search from "./Search";
-import AddTransactionForm from "./AddTransactionForm";
+// import Search from "./Search";
+// import AddTransactionForm from "./AddTransactionForm";
 
 function AccountContainer() {
 
@@ -18,8 +18,8 @@ function AccountContainer() {
 
   return (
     <div>
-      <Search trans={transactions}/>
-      <AddTransactionForm trans={transactions}/>
+      {/* <Search trans={transactions}/>
+      <AddTransactionForm trans={transactions}/> */}
       <TransactionsList trans={transactions}/>
     </div>
   );

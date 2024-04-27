@@ -1,27 +1,22 @@
-import React, {useState} from "react";
+import React from "react";
 
+function Search({search, onSearchChange}) {
+  
 
-function Search({trans}) {
-  const [typedSearch, setTypedSearch] = useState("All");
-
-  function handleCategoryChange(event) {
-    setTypedSearch(event.target.value);
+  function handleSearchChange(event) {
+    
+    onSearchChange(event.target.value);
   }
 
-  const transToDisplay = trans.filter((tran) => {
-    if (typedSearch === "All"){
-      return true;
-    }
-    return tran.category === typedSearch;
-  });
   return (
     <div className="ui large fluid icon input">
       <input
         type="text"
         placeholder="Search your Recent Transactions"
-        onChange={() => console.log("Searching...")}
+        value={search} 
+        onChange={handleSearchChange}
       />
-      <i className="circular search link icon" onClick={handleCategoryChange}></i>
+      <i className="circular search link icon" ></i>
     </div>
   );
 }

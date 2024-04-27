@@ -1,32 +1,48 @@
-import React from "react";
+import React,{useState} from "react";
+//import React from "react";
 import Transaction from "./Transaction";
+import Search from "./Search";
+import AddTransactionForm from "./AddTransactionForm";
 
 function TransactionsList({trans}) {
+  const [typedSearch, setTypedSearch] = useState("");
+
+  const transToDisplay = trans
+    // // category
+    // .filter(
+    //   (item) => selectedCategory === "All" || item.category === selectedCategory
+    // )
+    // search term
+    .filter((tran) => tran.description.toLowerCase().includes(typedSearch.toLowerCase()));
 
   return (
-    <table className="ui celled striped padded table">
-      <tbody>
-        <tr>
-          <th>
-            <h3 className="ui center aligned header">Date</h3>
-          </th>
-          <th>
-            <h3 className="ui center aligned header">Description</h3>
-          </th>
-          <th>
-            <h3 className="ui center aligned header">Category</h3>
-          </th>
-          <th>
-            <h3 className="ui center aligned header">Amount</h3>
-          </th>
-        </tr>
-        {/* Included the Transaction component */}
-        { trans.map((posted)=>(
-          <Transaction key={posted.id} date={posted.date} desc={posted.description} 
-          categ={posted.category} amount={posted.amount} />
-        ))}
-      </tbody>
-    </table>
+    <div>
+      <Search search={typedSearch} onSearchChange={setTypedSearch}/>
+      <AddTransactionForm />
+      <table className="ui celled striped padded table">
+        <tbody>
+          <tr>
+            <th>
+              <h3 className="ui center aligned header">Date</h3>
+            </th>
+            <th>
+              <h3 className="ui center aligned header">Description</h3>
+            </th>
+            <th>
+              <h3 className="ui center aligned header">Category</h3>
+            </th>
+            <th>
+              <h3 className="ui center aligned header">Amount</h3>
+            </th>
+          </tr>
+          {/* Included the Transaction component */}
+          { transToDisplay.map((posted)=>(
+            <Transaction key={posted.id} date={posted.date} desc={posted.description} 
+            categ={posted.category} amount={posted.amount} />
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }
 
