@@ -13,8 +13,9 @@ function TransactionsList({trans}) {
     //   (item) => selectedCategory === "All" || item.category === selectedCategory
     // )
     // search term
-    .filter((tran) => tran.description.toLowerCase().includes(typedSearch.toLowerCase()));
-
+    .filter((tran) => tran.category.toLowerCase().includes(typedSearch.toLowerCase()) ||
+    tran.description.toLowerCase().includes(typedSearch.toLowerCase()))
+    
   return (
     <div>
       <Search search={typedSearch} onSearchChange={setTypedSearch}/>
