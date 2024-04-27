@@ -4,7 +4,6 @@ function Search({search, onSearchChange}) {
   
 
   function handleSearchChange(event) {
-    
     onSearchChange(event.target.value);
   }
 
