@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import TransactionsList from "./TransactionsList";
-// import Search from "./Search";
-// import AddTransactionForm from "./AddTransactionForm";
+
 
 function AccountContainer() {
 
   var [transactions,setTransactions] = useState([])
-
+  //GET request
   useEffect(()=> {
     fetch('http://localhost:8001/transactions')
       .then((response) => response.json())
@@ -14,13 +13,17 @@ function AccountContainer() {
         setTransactions(data)
       });
 
-  },[])  
+  },[])
+  // Form for transactions 
+  const [newTrans, setNewTrans] = useState(transactions);
+
+  function handleFormSubmit(addTrans) {
+    setNewTrans([...newTrans, addTrans]);
+  }
 
   return (
     <div>
-      {/* <Search trans={transactions}/>
-      <AddTransactionForm trans={transactions}/> */}
-      <TransactionsList trans={transactions}/>
+      <TransactionsList trans={transactions} onFormSubmit={handleFormSubmit}/>
     </div>
   );
 }

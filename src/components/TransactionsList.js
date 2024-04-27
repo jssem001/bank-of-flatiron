@@ -1,25 +1,19 @@
 import React,{useState} from "react";
-//import React from "react";
 import Transaction from "./Transaction";
 import Search from "./Search";
 import AddTransactionForm from "./AddTransactionForm";
 
-function TransactionsList({trans}) {
+function TransactionsList({trans, onFormSubmit}) {
   const [typedSearch, setTypedSearch] = useState("");
 
   const transToDisplay = trans
-    // // category
-    // .filter(
-    //   (item) => selectedCategory === "All" || item.category === selectedCategory
-    // )
-    // search term
     .filter((tran) => tran.category.toLowerCase().includes(typedSearch.toLowerCase()) ||
-    tran.description.toLowerCase().includes(typedSearch.toLowerCase()))
+     tran.description.toLowerCase().includes(typedSearch.toLowerCase()))
     
   return (
     <div>
       <Search search={typedSearch} onSearchChange={setTypedSearch}/>
-      <AddTransactionForm />
+      <AddTransactionForm onFormSubmit={onFormSubmit}/>
       <table className="ui celled striped padded table">
         <tbody>
           <tr>
