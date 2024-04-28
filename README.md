@@ -1,3 +1,5 @@
+React Code Challenge completed by Joshua Ssemwanga
+
 # Bank of Flatiron
 
 Welcome to the Bank of Flatiron, where you can trust us with all your financial
@@ -133,3 +135,6 @@ Example Response:
 ```json
 {}
 ```
+
+# Contact: 
+email: muwanguzi.ssemwanga@student.moringaschool.com | phone: 0717602334
