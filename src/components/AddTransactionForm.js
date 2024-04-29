@@ -20,7 +20,7 @@ function AddTransactionForm({onFormSubmit}) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    fetch('http://localhost:8001/transactions', {
+    fetch('https://bank-of-flatiron-asaw.onrender.com/transactions', {
          method: 'POST',
          body: JSON.stringify({
            "id": uuid(),
