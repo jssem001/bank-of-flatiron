@@ -97,6 +97,13 @@
       "description": "Music",
       "category": "subscription",
       "amount": "13"
+    },
+    {
+      "id": "a00d247e-0302-469f-80c1-1aa542c2956c",
+      "date": "2024-04-30",
+      "description": "Bob's Burgers bonus",
+      "category": "Income",
+      "amount": "1200"
     }
   ]
 }
